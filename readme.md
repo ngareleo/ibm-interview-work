@@ -35,7 +35,7 @@ The most probable character to appear after MK is the character that appears aft
 
 ## Tools Used
 
-1. I used Pandas?
+1. I used Pandas. Why?
    - Its ability to open the CSV in chunks to save memory
    - Performance compared to in-built python arrays
    - Easy filtering
@@ -50,6 +50,11 @@ The most probable character to appear after MK is the character that appears aft
 
 ## Running
 
-```python
-py ./src/main.py
+``
+pip install -r requirements.txt
+cd src
+python3 main.py
+
+```
+
 ```
