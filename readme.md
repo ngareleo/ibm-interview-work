@@ -23,7 +23,7 @@ The probability of travelling from Kijauri is given by:
 - _Let, a = The probability that a passenger travelling from Kijauri will take a shuttle if they depart before 7:30_
 - _b = The number of people who travelled from Kijauri and departed before 7:30_
 - _c = The number of people who took a shuttle, travelled from Kijauri and departed before 7:30_
-- _a = b / c_
+- _a = c/b_
 
 ---
 
