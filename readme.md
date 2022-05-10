@@ -50,16 +50,17 @@ The most probable character to appear after MK is the character that appears aft
 
 ## Running
 
-####On Bash
+#### On Bash
 ```console
 pip install -r requirements.txt
 cd src
 python3 main.py
 ```
 
-####On Windows
+#### On Windows
 ```sh
 pip install -r requirements.txt
 cd src
 python3 main.py
 ```
+Enjoy 👍
