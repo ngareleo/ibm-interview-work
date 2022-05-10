@@ -6,9 +6,11 @@ class OperateOnFile:
 
     def __init__(self) -> None:
         result1 = self.prob_of_taking_shuttle_from_kijauri()
+        result2 = self.most_travelled_routes()
         result3 = self.prob_next_character_after_MK()
         print(f"The probability that a passenger travelling from Kijauri will take a Shuttle if they depart before 07:30 is {result1}")
         print(f"The most probable next character after MK is {result3}")
+        print(f"Most travelled route is {result2}")
 
 
     def prob_of_taking_shuttle_from_kijauri(self):
@@ -33,10 +35,8 @@ class OperateOnFile:
     def most_travelled_routes(self):
         data = open_csv_file()
         for chunk in data:
-            print(chunk.head(20))
-            print(chunk.size)
-            chunk.insert(0, "sum", np.ones(chunk.size, dtype=int), allow_duplicates=True)
-            print(chunk.groupby(["travel_from"]).sum())
+            travelled_from = chunk.travel_from
+            print(travelled_from)
 
 
     def prob_next_character_after_MK(self):
