@@ -10,15 +10,20 @@ The goals of this program is to:
 
 ## Most Travelled Route
 
-The general approach taken involves iterating through the data points while updating a frequency table that tracks the route aganist the number of times visted
+1. The general approach taken involves iterating through the data points while updating a frequency table that tracks the route aganist the number of times visted.
+2. We sort the frequency table based on the value
+3. Return a tuple of the 7 most travelled trips
+
+---
 
 ## Probability of taking a Shuttle
 
 The probability of travelling from Kijauri is given by:
-Let, a = The probability that a passenger travelling from Kijauri will take a shuttle if they depart before 7:30
-b = The number of people who travelled from Kijauri and departed before 7:30
-c = The number of people who took a shuttle, travelled from Kijauri and departed before 7:30
-a = b / c
+
+- _Let, a = The probability that a passenger travelling from Kijauri will take a shuttle if they depart before 7:30_
+- _b = The number of people who travelled from Kijauri and departed before 7:30_
+- _c = The number of people who took a shuttle, travelled from Kijauri and departed before 7:30_
+- _a = b / c_
 
 ---
 
@@ -29,7 +34,7 @@ The most probable character to appear after MK is the character that appears aft
 ### Approach
 
 1. Filter the datapoints with "MK" in their receipt
-2. Find the character that comes after "MK" (Index+2) where index is the location of 'M' in the 'MK' sequence in the receipt
+2. Find the character that comes after "MK" _((Index+2) where index is the location of 'M' in the 'MK' sequence in the receipt)_
 3. Update the character found in frequency table
 4. Find the largest entry in the frequency table
 
@@ -38,9 +43,12 @@ The most probable character to appear after MK is the character that appears aft
 ## Tools Used
 
 1. I used Pandas to read the CSV file. Why?
+
    - Its ability to open the CSV in chunks to save memory
    - Its better performance compared to in-built python arrays
    - Easy filtering
+
+2. I used numpy arrays instead of python lists because of the better performance
 
 ---
 

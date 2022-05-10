@@ -1,6 +1,6 @@
-import pandas as pd
 import numpy as np
 from helpers import open_csv_file
+from collections import Counter
 
 class OperateOnFile:
 
@@ -9,8 +9,10 @@ class OperateOnFile:
         result2 = self.most_travelled_routes()
         result3 = self.prob_next_character_after_MK()
         print(f"The probability that a passenger travelling from Kijauri will take a Shuttle if they depart before 07:30 is {result1}")
-        print(f"The most probable next character after MK is {result3}")
-        print(f"Most travelled route is {result2}")
+        print(f"The most probable next character after MK is '{result3[0]}' it appeared {result3[1]} times")
+        print(f"The top 7 most travelled routes are : ")
+        for i, result in enumerate(result2):
+            print(f"{i+1}. {result[0]} with {result[1]} trips")
 
 
     def prob_of_taking_shuttle_from_kijauri(self):
@@ -34,9 +36,17 @@ class OperateOnFile:
 
     def most_travelled_routes(self):
         data = open_csv_file()
+        counter = Counter() # Holds the frequency of each route
         for chunk in data:
-            travelled_from = chunk.travel_from
-            print(travelled_from)
+            """Update the counter chunk by chunk"""
+            travelled_from = np.array(chunk.travel_from)
+            counter.update(travelled_from) 
+        
+        """Sort the counter to get the most travelled routes"""
+
+        counter = sorted(counter.items(), key=lambda item: item[1], reverse=True)
+        return counter[:7]
+            
 
 
     def prob_next_character_after_MK(self):
@@ -62,7 +72,7 @@ class OperateOnFile:
 
         """sorting items in the frequency table based on value"""
         most_common:tuple = sorted(next_char_frequency.items(), key=lambda item: item[1], reverse=True) #
-        return most_common[0][0]
+        return most_common[0]
 
 
 
